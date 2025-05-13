@@ -45,7 +45,7 @@ melhor_reta <- lm(dist ~ speed, data = cars)
 
 
 ```{r}
-# http://www.danieldsjoberg.com/gtsummary/
+# http://www.danieldsjoberlibrary(tidymodels)library(tidymodels)g.com/gtsummary/
 library(gtsummary)
 tbl_regression(melhor_reta)
 ```
@@ -76,7 +76,7 @@ Calcule o EQM da melhor reta e compare com a saída do `summary(melhor_reta)`.
 # dicas:
 # yh é o y chapéu (ou valor ajustado). O nome da coluna retornado pelo augment() para o yh é o .fitted
 # EQM = mean((y - yh)^2).
-y <-
+y <- 
 yh <- 
 
 EQM <- 

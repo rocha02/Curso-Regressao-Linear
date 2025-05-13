@@ -76,17 +76,15 @@ Calcule o EQM da melhor reta e compare com a saída do `summary(melhor_reta)`.
 # dicas:
 # yh é o y chapéu (ou valor ajustado). O nome da coluna retornado pelo augment() para o yh é o .fitted
 # EQM = mean((y - yh)^2).
-y <-
-yh <- 
+y <- cars_com_predicoes$dist
+yh <- cars_com_predicoes$.fitted
 
-EQM <- 
+EQM <- mean((y - yh)^2)
 ```
 
 ```{r}
 summary(melhor_reta) # compare o resultado obtido com essa saída
 ```
-
-
 
 ## Exercício 2 
 
@@ -96,15 +94,12 @@ calcule beta0 e beta1
 x <- cars$speed
 y <- cars$dist
 
-xbarra <-  #média de X
-ybarra <-  #média de y
+xbarra <-  mean(x)
+ybarra <-  mean(y)
 
-beta1 <- 
-beta0 <- 
+beta1 <- sum((x - xbarra) * (y - ybarra)) / sum((x - xbarra)^2)
+beta0 <- ybarra - beta1 * xbarra
 ```
-
-
-
 
 
 ## Exercício 3
@@ -112,7 +107,9 @@ beta0 <-
 Tire as informações do objeto `melhor_reta` para decidir se speed está associado com dist. Use a função `summary()`.
 
 ```{r}
+summary(melhor_reta) # compare o resultado obtido com essa saída
 
+# Esta associado, pois o p-valor de speed é bem menor que 0.05 (***)
 ```
 
 ## Exercício 4 
@@ -120,6 +117,7 @@ Tire as informações do objeto `melhor_reta` para decidir se speed está associ
 Interprete o parâmetro `speed` (beta 1).
 
 ```{r}
+# Quanto mais rápido o carro anda, mais distante ele para, numa proporção de 3.93 metros para cada aumento de 1 km/h na velocidade.
 
 ```
 
